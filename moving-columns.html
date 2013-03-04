@@ -1,0 +1,73 @@
+<!--#include virtual="html-includes/header-meta.html" -->
+
+<link rel="stylesheet/less" type="text/css" href="styles/less/grid/grid-12/grid.less">
+
+<!--#include virtual="html-includes/header-close.html" -->
+
+
+<body onload="prettyPrint()">
+	
+    <!--#include virtual="html-includes/header-main-nav.html" -->
+	<div id="wrapper">
+		<div class="wrapper">
+			<h1>Grid System</h1>	
+		
+			<div class="code">
+				<h2>Grid Settings less file</h2>
+				<p>modify the grid-settings.less file to updated the grid 
+				<strong title="@gridContainerWidth">max width</strong>, <strong title="@maxColumns">number of columns</strong> 
+				and <strong title="@colGutter">column gutters</strong></p>
+<pre class="prettyprint linenums">
+@gridContainerWidth: 1024px;
+@maxColumns: 12;
+@colGutter: 2%;
+</pre>
+			</div>
+		
+			<section>
+                <h1>Moving Columns</h1>
+                <div class="grid-container show-grid">
+                    <div class="row">
+                        <div class="span2">
+                            <p>2</p>
+                        </div>
+                        <div class="span2 move6">
+                            <p>2 moved 6</p>
+                        </div>
+                        <div class="span2">
+                            <p>2</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span4">
+                            <p>4</p>
+                        </div>
+                        <div class="span4 move4">
+                            <p>4 moved 4</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span2">
+                            <p>2</p>
+                        </div>
+                        <div class="span2 move3">
+                            <p>2 moved 3</p>
+                        </div>
+                        <div class="span1 move1">
+                            <p>1 move 1</p>
+                        </div>
+                        <div class="span3">
+                            <p>3</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="span1 move11">
+                            <p>1 move 11</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+	</div>
+</body>
+</html>
