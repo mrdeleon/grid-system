@@ -8,13 +8,13 @@
 =================
 
 /* IF GRID IS FLUID */
-@colWidthStart: 100 / @maxColumns - @colGutter;
-@dividedGutter: @colGutter / @maxColumns; 
-@colWidth: @colWidthStart + @dividedGutter;
+@colWidthStart: 100 / @maxColumns - @colGutterFluid;
+@dividedGutter: @colGutterFluid / @maxColumns; 
+@colWidthFluid: @colWidthStart + @dividedGutter;
 
 
 /* IF GRID IS FIXED */
-@colWidth: (@gridContainerWidth - @wrapperPaddingLeft - @wrapperPaddingRight) / @maxColumns - @colGutter;
+@colWidthFixed: (@gridContainerWidth - @wrapperPaddingLeft - @wrapperPaddingRight) / @maxColumns - @colGutterFixed;
 
 
 *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
@@ -23,7 +23,6 @@
 	padding-left:@wrapperPaddingLeft;
 	padding-right:@wrapperPaddingRight;
 	width:@gridContainerWidth;}
-.grid-container.fluid{width:100%;}
 
 .grid-container.show-grid [class*=span]{
 	background-color:#A3D3FC;
@@ -54,67 +53,140 @@
 }
 .grid-container .row [class*=span]{
 	float:left;
-	margin-left:@colGutter;
 	position:relative;
 }
-.grid-container .row [class*=span]:first-child{margin-left:0;}
 
-.grid-container .row .span1{width:@colWidth;}	
-.grid-container .row .span2{width:(@colWidth * 2) + @colGutter;}
-.grid-container .row .span3{width:((@colWidth * 3) + (@colGutter * 2));}
-.grid-container .row .span4{width:((@colWidth * 4) + (@colGutter * 3));}
-.grid-container .row .span5{width:((@colWidth * 5) + (@colGutter * 4));}
-.grid-container .row .span6{width:((@colWidth * 6) + (@colGutter * 5));}
-.grid-container .row .span7{width:((@colWidth * 7) + (@colGutter * 6));}
-.grid-container .row .span8{width:((@colWidth * 8) + (@colGutter * 7));}
-.grid-container .row .span9{width:((@colWidth * 9) + (@colGutter * 8));}
-.grid-container .row .span10{width:((@colWidth * 10) + (@colGutter * 9));}
-.grid-container .row .span11{width:((@colWidth * 11) + (@colGutter * 10));}
-.grid-container .row .span12{width:((@colWidth * 12) + (@colGutter * 11));}
-.grid-container .row .span13{width:((@colWidth * 13) + (@colGutter * 12));}
-.grid-container .row .span14{width:((@colWidth * 14) + (@colGutter * 13));}
-.grid-container .row .span15{width:((@colWidth * 15) + (@colGutter * 14));}
-.grid-container .row .span16{width:((@colWidth * 16) + (@colGutter * 15));}
-.grid-container .row .span17{width:((@colWidth * 17) + (@colGutter * 16));}
-.grid-container .row .span18{width:((@colWidth * 18) + (@colGutter * 17));}
-.grid-container .row .span19{width:((@colWidth * 19) + (@colGutter * 18));}
-.grid-container .row .span20{width:((@colWidth * 20) + (@colGutter * 19));}
+.grid-container .row [class*=span]:first-child,
+.grid-container.fluid .row [class*=span]:first-child,
+.grid-container.fluid .row .row [class*=span]:first-child{margin-left:0;}
 
-.grid-container .row .move1{margin-left:(@colWidth + (@colGutter * 2));
-			  &:first-child {margin-left:(@colWidth + (@colGutter * 1));}}
-.grid-container .row .move2{margin-left:((@colWidth * 2) + (@colGutter * 3));
-			  &:first-child {margin-left:((@colWidth * 2) + (@colGutter * 2));}}
-.grid-container .row .move3{margin-left:((@colWidth * 3) + (@colGutter * 4));
-			  &:first-child {margin-left:((@colWidth * 3) + (@colGutter * 3));}}
-.grid-container .row .move4{margin-left:((@colWidth * 4) + (@colGutter * 5));
-			  &:first-child {margin-left:((@colWidth * 4) + (@colGutter * 4));}}
-.grid-container .row .move5{margin-left:((@colWidth * 5) + (@colGutter * 6));
-			  &:first-child {margin-left:((@colWidth * 5) + (@colGutter * 5));}}
-.grid-container .row .move6{margin-left:((@colWidth * 6) + (@colGutter * 7));
-			  &:first-child {margin-left:((@colWidth * 6) + (@colGutter * 6));}}
-.grid-container .row .move7{margin-left:((@colWidth * 7) + (@colGutter * 8));
-			  &:first-child {margin-left:((@colWidth * 7) + (@colGutter * 7));}}
-.grid-container .row .move8{margin-left:((@colWidth * 8) + (@colGutter * 9));
-			  &:first-child {margin-left:((@colWidth * 8) + (@colGutter * 8));}}
-.grid-container .row .move9{margin-left:((@colWidth * 9) + (@colGutter * 10));
-			  &:first-child {margin-left:((@colWidth * 9) + (@colGutter * 9));}}
-.grid-container .row .move10{margin-left:((@colWidth * 10) + (@colGutter * 11));
-			  &:first-child {margin-left:((@colWidth * 10) + (@colGutter * 10));}}
-.grid-container .row .move11{margin-left:((@colWidth * 11) + (@colGutter * 12));
-			  &:first-child {margin-left:((@colWidth * 11) + (@colGutter * 11));}}
-.grid-container .row .move12{margin-left:((@colWidth * 12) + (@colGutter * 13));
-			  &:first-child {margin-left:((@colWidth * 12) + (@colGutter * 12));}}
-.grid-container .row .move13{margin-left:((@colWidth * 13) + (@colGutter * 14));
-			  &:first-child {margin-left:((@colWidth * 13) + (@colGutter * 13));}}
-.grid-container .row .move14{margin-left:((@colWidth * 14) + (@colGutter * 15));
-			  &:first-child {margin-left:((@colWidth * 14) + (@colGutter * 14));}}
-.grid-container .row .move15{margin-left:((@colWidth * 15) + (@colGutter * 16));
-			  &:first-child {margin-left:((@colWidth * 15) + (@colGutter * 15));}}
-.grid-container .row .move16{margin-left:((@colWidth * 16) + (@colGutter * 17));
-			  &:first-child {margin-left:((@colWidth * 16) + (@colGutter * 16));}}
-.grid-container .row .move17{margin-left:((@colWidth * 17) + (@colGutter * 18));
-			  &:first-child {margin-left:((@colWidth * 17) + (@colGutter * 17));}}
-.grid-container .row .move18{margin-left:((@colWidth * 18) + (@colGutter * 19));
-			  &:first-child {margin-left:((@colWidth * 18) + (@colGutter * 18));}}
-.grid-container .row .move19{margin-left:((@colWidth * 19) + (@colGutter * 20));
-			  &:first-child {margin-left:((@colWidth * 19) + (@colGutter * 19));}}
+
+/* FIXED GRID */	
+.grid-container .row [class*=span]{
+	margin-left:@colGutterFixed;
+}
+  
+.grid-container .row .span1{width:@colWidthFixed;}	
+.grid-container .row .span2{width:(@colWidthFixed * 2) + @colGutterFixed;}
+.grid-container .row .span3{width:((@colWidthFixed * 3) + (@colGutterFixed * 2));}
+.grid-container .row .span4{width:((@colWidthFixed * 4) + (@colGutterFixed * 3));}
+.grid-container .row .span5{width:((@colWidthFixed * 5) + (@colGutterFixed * 4));}
+.grid-container .row .span6{width:((@colWidthFixed * 6) + (@colGutterFixed * 5));}
+.grid-container .row .span7{width:((@colWidthFixed * 7) + (@colGutterFixed * 6));}
+.grid-container .row .span8{width:((@colWidthFixed * 8) + (@colGutterFixed * 7));}
+.grid-container .row .span9{width:((@colWidthFixed * 9) + (@colGutterFixed * 8));}
+.grid-container .row .span10{width:((@colWidthFixed * 10) + (@colGutterFixed * 9));}
+.grid-container .row .span11{width:((@colWidthFixed * 11) + (@colGutterFixed * 10));}
+.grid-container .row .span12{width:((@colWidthFixed * 12) + (@colGutterFixed * 11));}
+.grid-container .row .span13{width:((@colWidthFixed * 13) + (@colGutterFixed * 12));}
+.grid-container .row .span14{width:((@colWidthFixed * 14) + (@colGutterFixed * 13));}
+.grid-container .row .span15{width:((@colWidthFixed * 15) + (@colGutterFixed * 14));}
+.grid-container .row .span16{width:((@colWidthFixed * 16) + (@colGutterFixed * 15));}
+.grid-container .row .span17{width:((@colWidthFixed * 17) + (@colGutterFixed * 16));}
+.grid-container .row .span18{width:((@colWidthFixed * 18) + (@colGutterFixed * 17));}
+.grid-container .row .span19{width:((@colWidthFixed * 19) + (@colGutterFixed * 18));}
+.grid-container .row .span20{width:((@colWidthFixed * 20) + (@colGutterFixed * 19));}
+
+.grid-container .row .move1{margin-left:(@colWidthFixed + (@colGutterFixed * 2));
+			  &:first-child {margin-left:(@colWidthFixed + (@colGutterFixed * 1));}}
+.grid-container .row .move2{margin-left:((@colWidthFixed * 2) + (@colGutterFixed * 3));
+			  &:first-child {margin-left:((@colWidthFixed * 2) + (@colGutterFixed * 2));}}
+.grid-container .row .move3{margin-left:((@colWidthFixed * 3) + (@colGutterFixed * 4));
+			  &:first-child {margin-left:((@colWidthFixed * 3) + (@colGutterFixed * 3));}}
+.grid-container .row .move4{margin-left:((@colWidthFixed * 4) + (@colGutterFixed * 5));
+			  &:first-child {margin-left:((@colWidthFixed * 4) + (@colGutterFixed * 4));}}
+.grid-container .row .move5{margin-left:((@colWidthFixed * 5) + (@colGutterFixed * 6));
+			  &:first-child {margin-left:((@colWidthFixed * 5) + (@colGutterFixed * 5));}}
+.grid-container .row .move6{margin-left:((@colWidthFixed * 6) + (@colGutterFixed * 7));
+			  &:first-child {margin-left:((@colWidthFixed * 6) + (@colGutterFixed * 6));}}
+.grid-container .row .move7{margin-left:((@colWidthFixed * 7) + (@colGutterFixed * 8));
+			  &:first-child {margin-left:((@colWidthFixed * 7) + (@colGutterFixed * 7));}}
+.grid-container .row .move8{margin-left:((@colWidthFixed * 8) + (@colGutterFixed * 9));
+			  &:first-child {margin-left:((@colWidthFixed * 8) + (@colGutterFixed * 8));}}
+.grid-container .row .move9{margin-left:((@colWidthFixed * 9) + (@colGutterFixed * 10));
+			  &:first-child {margin-left:((@colWidthFixed * 9) + (@colGutterFixed * 9));}}
+.grid-container .row .move10{margin-left:((@colWidthFixed * 10) + (@colGutterFixed * 11));
+			  &:first-child {margin-left:((@colWidthFixed * 10) + (@colGutterFixed * 10));}}
+.grid-container .row .move11{margin-left:((@colWidthFixed * 11) + (@colGutterFixed * 12));
+			  &:first-child {margin-left:((@colWidthFixed * 11) + (@colGutterFixed * 11));}}
+.grid-container .row .move12{margin-left:((@colWidthFixed * 12) + (@colGutterFixed * 13));
+			  &:first-child {margin-left:((@colWidthFixed * 12) + (@colGutterFixed * 12));}}
+.grid-container .row .move13{margin-left:((@colWidthFixed * 13) + (@colGutterFixed * 14));
+			  &:first-child {margin-left:((@colWidthFixed * 13) + (@colGutterFixed * 13));}}
+.grid-container .row .move14{margin-left:((@colWidthFixed * 14) + (@colGutterFixed * 15));
+			  &:first-child {margin-left:((@colWidthFixed * 14) + (@colGutterFixed * 14));}}
+.grid-container .row .move15{margin-left:((@colWidthFixed * 15) + (@colGutterFixed * 16));
+			  &:first-child {margin-left:((@colWidthFixed * 15) + (@colGutterFixed * 15));}}
+.grid-container .row .move16{margin-left:((@colWidthFixed * 16) + (@colGutterFixed * 17));
+			  &:first-child {margin-left:((@colWidthFixed * 16) + (@colGutterFixed * 16));}}
+.grid-container .row .move17{margin-left:((@colWidthFixed * 17) + (@colGutterFixed * 18));
+			  &:first-child {margin-left:((@colWidthFixed * 17) + (@colGutterFixed * 17));}}
+.grid-container .row .move18{margin-left:((@colWidthFixed * 18) + (@colGutterFixed * 19));
+			  &:first-child {margin-left:((@colWidthFixed * 18) + (@colGutterFixed * 18));}}
+.grid-container .row .move19{margin-left:((@colWidthFixed * 19) + (@colGutterFixed * 20));
+			  &:first-child {margin-left:((@colWidthFixed * 19) + (@colGutterFixed * 19));}}
+			  
+
+/* FLUID GRID */
+.grid-container.fluid{width:100%;}
+.grid-container.fluid .row [class*=span]{ margin-left:@colGutterFluid; }
+
+.grid-container.fluid .row .span1{width:@colWidthFluid;}	
+.grid-container.fluid .row .span2{width:(@colWidthFluid * 2) + @colGutterFluid;}
+.grid-container.fluid .row .span3{width:((@colWidthFluid * 3) + (@colGutterFluid * 2));}
+.grid-container.fluid .row .span4{width:((@colWidthFluid * 4) + (@colGutterFluid * 3));}
+.grid-container.fluid .row .span5{width:((@colWidthFluid * 5) + (@colGutterFluid * 4));}
+.grid-container.fluid .row .span6{width:((@colWidthFluid * 6) + (@colGutterFluid * 5));}
+.grid-container.fluid .row .span7{width:((@colWidthFluid * 7) + (@colGutterFluid * 6));}
+.grid-container.fluid .row .span8{width:((@colWidthFluid * 8) + (@colGutterFluid * 7));}
+.grid-container.fluid .row .span9{width:((@colWidthFluid * 9) + (@colGutterFluid * 8));}
+.grid-container.fluid .row .span10{width:((@colWidthFluid * 10) + (@colGutterFluid * 9));}
+.grid-container.fluid .row .span11{width:((@colWidthFluid * 11) + (@colGutterFluid * 10));}
+.grid-container.fluid .row .span12{width:((@colWidthFluid * 12) + (@colGutterFluid * 11));}
+.grid-container.fluid .row .span13{width:((@colWidthFluid * 13) + (@colGutterFluid * 12));}
+.grid-container.fluid .row .span14{width:((@colWidthFluid * 14) + (@colGutterFluid * 13));}
+.grid-container.fluid .row .span15{width:((@colWidthFluid * 15) + (@colGutterFluid * 14));}
+.grid-container.fluid .row .span16{width:((@colWidthFluid * 16) + (@colGutterFluid * 15));}
+.grid-container.fluid .row .span17{width:((@colWidthFluid * 17) + (@colGutterFluid * 16));}
+.grid-container.fluid .row .span18{width:((@colWidthFluid * 18) + (@colGutterFluid * 17));}
+.grid-container.fluid .row .span19{width:((@colWidthFluid * 19) + (@colGutterFluid * 18));}
+.grid-container.fluid .row .span20{width:((@colWidthFluid * 20) + (@colGutterFluid * 19));}
+
+.grid-container.fluid .row .move1{margin-left:(@colWidthFluid + (@colGutterFluid * 2));
+			  &:first-child {margin-left:(@colWidthFluid + (@colGutterFluid * 1));}}
+.grid-container.fluid .row .move2{margin-left:((@colWidthFluid * 2) + (@colGutterFluid * 3));
+			  &:first-child {margin-left:((@colWidthFluid * 2) + (@colGutterFluid * 2));}}
+.grid-container.fluid .row .move3{margin-left:((@colWidthFluid * 3) + (@colGutterFluid * 4));
+			  &:first-child {margin-left:((@colWidthFluid * 3) + (@colGutterFluid * 3));}}
+.grid-container.fluid .row .move4{margin-left:((@colWidthFluid * 4) + (@colGutterFluid * 5));
+			  &:first-child {margin-left:((@colWidthFluid * 4) + (@colGutterFluid * 4));}}
+.grid-container.fluid .row .move5{margin-left:((@colWidthFluid * 5) + (@colGutterFluid * 6));
+			  &:first-child {margin-left:((@colWidthFluid * 5) + (@colGutterFluid * 5));}}
+.grid-container.fluid .row .move6{margin-left:((@colWidthFluid * 6) + (@colGutterFluid * 7));
+			  &:first-child {margin-left:((@colWidthFluid * 6) + (@colGutterFluid * 6));}}
+.grid-container.fluid .row .move7{margin-left:((@colWidthFluid * 7) + (@colGutterFluid * 8));
+			  &:first-child {margin-left:((@colWidthFluid * 7) + (@colGutterFluid * 7));}}
+.grid-container.fluid .row .move8{margin-left:((@colWidthFluid * 8) + (@colGutterFluid * 9));
+			  &:first-child {margin-left:((@colWidthFluid * 8) + (@colGutterFluid * 8));}}
+.grid-container.fluid .row .move9{margin-left:((@colWidthFluid * 9) + (@colGutterFluid * 10));
+			  &:first-child {margin-left:((@colWidthFluid * 9) + (@colGutterFluid * 9));}}
+.grid-container.fluid .row .move10{margin-left:((@colWidthFluid * 10) + (@colGutterFluid * 11));
+			  &:first-child {margin-left:((@colWidthFluid * 10) + (@colGutterFluid * 10));}}
+.grid-container.fluid .row .move11{margin-left:((@colWidthFluid * 11) + (@colGutterFluid * 12));
+			  &:first-child {margin-left:((@colWidthFluid * 11) + (@colGutterFluid * 11));}}
+.grid-container.fluid .row .move12{margin-left:((@colWidthFluid * 12) + (@colGutterFluid * 13));
+			  &:first-child {margin-left:((@colWidthFluid * 12) + (@colGutterFluid * 12));}}
+.grid-container.fluid .row .move13{margin-left:((@colWidthFluid * 13) + (@colGutterFluid * 14));
+			  &:first-child {margin-left:((@colWidthFluid * 13) + (@colGutterFluid * 13));}}
+.grid-container.fluid .row .move14{margin-left:((@colWidthFluid * 14) + (@colGutterFluid * 15));
+			  &:first-child {margin-left:((@colWidthFluid * 14) + (@colGutterFluid * 14));}}
+.grid-container.fluid .row .move15{margin-left:((@colWidthFluid * 15) + (@colGutterFluid * 16));
+			  &:first-child {margin-left:((@colWidthFluid * 15) + (@colGutterFluid * 15));}}
+.grid-container.fluid .row .move16{margin-left:((@colWidthFluid * 16) + (@colGutterFluid * 17));
+			  &:first-child {margin-left:((@colWidthFluid * 16) + (@colGutterFluid * 16));}}
+.grid-container.fluid .row .move17{margin-left:((@colWidthFluid * 17) + (@colGutterFluid * 18));
+			  &:first-child {margin-left:((@colWidthFluid * 17) + (@colGutterFluid * 17));}}
+.grid-container.fluid .row .move18{margin-left:((@colWidthFluid * 18) + (@colGutterFluid * 19));
+			  &:first-child {margin-left:((@colWidthFluid * 18) + (@colGutterFluid * 18));}}
+.grid-container.fluid .row .move19{margin-left:((@colWidthFluid * 19) + (@colGutterFluid * 20));
+			  &:first-child {margin-left:((@colWidthFluid * 19) + (@colGutterFluid * 19));}}

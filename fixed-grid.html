@@ -9,24 +9,37 @@
 	
     <!--#include virtual="html-includes/header-main-nav.html" -->
 	<div id="wrapper">
-		<div class="wrapper">
-			<h1>Grid System</h1>	
-		
-			<div class="code">
-				<h2>Grid Settings less file</h2>
-				<p>modify the grid-settings.less file to updated the grid 
-				<strong title="@gridContainerWidth">max width</strong>, <strong title="@maxColumns">number of columns</strong> 
-				and <strong title="@colGutter">column gutters</strong></p>
+    	<div class="grid-container">
+        	<div class="row">
+            	<div class="span6">	
+                    <h2>12 Column Grid (fixed width 1024px)</h2>
+                    <p>modify the grid-settings.less file to updated the grid 
+                    <strong title="@gridContainerWidth">max width</strong>, <strong title="@maxColumns">number of columns</strong> 
+                    and <strong title="@colGutter">column gutters</strong></p>
+				</div>
+                <div class="span6">
+                    <h2>Settings inside grid-setting.less file</h2>
+                    <div class="code">
 <pre class="prettyprint linenums">
+@grid: fixed;
+@wrapperPaddingLeft: 10px;
+@wrapperPaddingRight: 10px;
 @gridContainerWidth: 1024px;
 @maxColumns: 12;
-@colGutter: 2%;
-</pre>
-			</div>
-		
-			<section>
 
-                <h1>12 Column Grid (fixed width 1024px)</h1>
+@colGutter: 12px;
+@rowLeading: 12px;
+</pre>
+                	</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="span12">
+                    <h2>Grid</h2>
+                </div>
+            </div>
+        </div>
+        
                 <div class="grid-container show-grid">
                 <div class="row">
                     <div class="span1">
@@ -145,8 +158,7 @@
                         </div>
                     </div>
                 </div>
-			</section>
-        </div>
+
 	</div>
 </body>
 </html>
